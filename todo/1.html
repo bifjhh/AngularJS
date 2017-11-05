@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todo</title>
+    <style>
+        input,
+        p {
+            margin: 0;
+            padding: 0;
+            height: 20px;
+            font-size: 12px;
+            line-height:20px;
+            box-sizing: border-box;
+
+        }
+
+        li {
+            list-style: none;
+        }
+
+        li input,p {
+            float: left;
+            outline-style: none;
+            border: none;
+        }
+
+        li input[type=text] {
+            width: 100px;
+            display: none;
+        }
+
+        li p {
+
+            width: 100px;
+            display: inline-block;
+        }
+
+        .edit input[type=text] {
+            width: 100px;
+            display: inline-block;
+            /* border:1px solid #ccc; */
+        }
+
+        .edit p {
+            width: 100px;
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+    <form ng-submit="add()">
+        <input type="text" ng-model="text">
+    </form>
+    <ul>
+        <li ng-class="{edit:isEdit}" ng-repeat="k in arr track by $index">
+            <input type="checkbox">
+            <form ng-submit="amend()">
+                <input type="text" ng-model="k.title">
+            </form>
+            <p ng-dblclick="Edit()">{{k.title}}</p>
+            <span ng-click="del(k.id)">X</span>
+        </li>
+    </ul>
+</body>
+<script src="../libs/angular.js"></script>
+<script>
+    var myApp = angular.module("myApp", [])
+        ; myApp.controller("myController", ['$scope', '$log', function ($scope, $log) {
+            $scope.text = ''
+
+                ; $scope.arr = []
+
+                ; $scope.add = function () {
+                    var obj = {
+                        "id": Math.random(),
+                        "title": $scope.text,
+                        "option": false
+                    }
+                        ; $scope.arr.push(obj)
+                        ; $scope.text = ''
+                }
+                ; $scope.del = function (id) {
+                    for (var i = 0; i < $scope.arr.length; i++) {
+                        if ($scope.arr[i].id == id) {
+                            $scope.arr.splice(i, 1)
+                        }
+                    }
+                }
+                ;
+            ; $scope.Edit = function () {
+                $scope.isEdit = true;
+            }
+                ; $scope.amend = function () {
+                    $scope.isEdit = false;
+                }
+        }])
+</script>
+
+</html>
