@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>传统方式创建控制器</title>
+    <script src="libs\angular1.2.30.js"></script>
+</head>
+
+<body ng-app>
+    <div ng-controller="aaa">
+        <p> {{name}}</p>
+        <p>{{age}}</p>
+    </div>
+    <!-- 在比较靠前的angular版本中（1.2.xx）angular会把全局函数当做控制器来使用 
+    虽然简单，但是存在弊端
+        大量的全局函数，会导致函数变量的污染
+    -->
+    <script>
+        function aaa($scope) {
+            $scope.name='888'
+            ;$scope.age=20;
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>angular参数识别的简单理论</title>
+    <script src="./libs/angular.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <p>{{name}}</p>
+    </div>
+</body>
+<script>
+    function fn(b) {
+        // console.log(typeof fn);
+        // console.log(fn.toString());
+        var str = fn.toString();
+        //利用分隔字符串的方法split，以'('和')'为分界线,所分隔出的第一个字符串就是当前函数所传入的参数名称
+        console.log(str.split('(')[1].split(')')[0])
+        //在angular中，回调函数内传入的参数的识别的原理，基本上级就是这样
+    }
+    fn();
+    var myApp = angular.module('myApp', [])
+        ; myApp.controller('myController', function ($scope) {
+            $scope.name='666';
+        })
+</script>
+
+</html>
