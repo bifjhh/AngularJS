@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>angular表达式闪烁</title>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <span ng-bind="name"></span>
+        <!-- 
+            浏览器不会吧标签的属性显示出来 
+            angular会把ng-bind="msg"对应的数据显示到对应的标签内 
+        -->
+    </div>
+</body>
+<script src="./libs/angular.js"></script>
+<script>
+    
+    var app = angular.module('myApp', [])
+        ; app.controller("myController", ['$scope', '$log', function ($scope, $log) {
+                $scope.name="0-0-0";
+        }])
+</script>
+
+</html>
