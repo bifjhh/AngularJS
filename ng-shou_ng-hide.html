@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>显示隐藏</title>
+</head>
+
+
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <h1 ng-show="show">000000000</h1>
+        <h1 ng-hide="show">小刘</h1>
+        <input type="button" value="点击切换" ng-click="btn()">
+    </div>
+</body>
+<script src="./libs/angular.js"></script>
+<script>
+
+    var app = angular.module('myApp', [])
+        ; app.controller("myController", ['$scope', function ($scope) {
+            $scope.show=true;
+            $scope.btn=function () {
+                $scope.show = !$scope.show;
+            }
+        }])
+</script>
+
+</html>
