@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--先引包-->
+    <script src="libs/angular.js"></script>
+    <script src="libs/jquery.min.js"></script>
+</head>
+<body ng-app>
+<!-- 2.加上ng-app属性,指定了angular要去管理哪一部分的代码 -->
+
+<input type="text" ng-model="abc">
+<!--给文本设置名称并显示设置的值-->
+<input type="button" value="+1" ng-click="abc=(abc-0+1)">
+<!-- 3.获取文本的值 -->
+</body>
+</html>

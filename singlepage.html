@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+
+<body>
+    <ul>
+        <li><a href="#find">发现音乐</a></li>
+        <li><a href="#mine">我的音乐</a></li>
+        <li><a href="#friend">我的朋友</a></li>
+    </ul>
+    <div id="box"></div>
+</body>
+<script src="./libs/jquery-1.12.2.js"></script>
+<script>
+    //根据url中锚点值的变化，动态请求不同的数据，把他显示出来
+    //1.监听url中锚点值变化的事件，hashchange
+    window.addEventListener('hashchange', function () {
+        //2.根据不同的锚点值去请求不同的数据
+        var hash = location.hash;//location.href
+        switch (hash) {
+            case '#find':
+                // 请求数据
+                $.get('find.json', function (data) {
+                    // 3.把它显示出来
+                    $('#box').html(data.data)
+                }, 'json');
+                break;
+            case '#mine':
+                // 请求数据
+                $.get('mine.json', function (data) {
+                    // 3.把它显示出来
+                    $('#box').html(data.data)
+                }, 'json');
+                break;
+            case '#friend':
+                // 请求数据
+                $.get('friend.json', function (data) {
+                    // 3.把它显示出来
+                    $('#box').html(data.data)
+                }, 'json');
+                break;
+        }
+        //3.把它显示出来
+
+    })
+
+    console.log(aaa)
+</script>
+
+</html>

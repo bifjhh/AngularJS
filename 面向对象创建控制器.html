@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="libs\angular.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController as obj">
+       <p> {{myname}}</p><p>{{obj.name}}</p>
+    </div>
+    <script>
+        var myApp = angular.module('myApp',[]);
+        myApp.controller('myController', function ($scope) {
+            $scope.myname = '小红'
+                ; this.name = '001'
+        })
+    </script>
+</body>
+
+</html>

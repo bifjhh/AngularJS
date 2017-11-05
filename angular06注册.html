@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="libs/angular.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="demoController">
+    <table>
+        <tr>
+            <td>用户名：<input type="text" ng-model="username"><span>{{}}</span></td>
+        </tr>
+        <tr>
+            <td>用户类型：<input type="text" ng-model="usertype"></td>
+        </tr>
+        <tr>
+            <td>密码：<input type="text" ng-model="userpwd"></td>
+        </tr>
+        <tr>
+            <td>确认密码：<input type="text" ng-model="confirmpwd"></td>
+        </tr>
+        <tr>
+            <td>注册协议：<input type="checkbox" ng-model="isagree"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="注册" ng-click="register()"></td>
+        </tr>
+        <tr>
+            <td>{{msg}}</td>
+        </tr>
+    </table>
+</div>
+<script>
+    //    创建模块
+    var app = angular.module('myApp', []);
+    //    创建控制器
+    var arr = JSON.parse(localStorage.getItem("k")) || [];
+    app.controller('demoController', function ($scope) {
+        //初始化数据模型
+        $scope.username = '';
+        $scope.usertype = '';
+        $scope.userpwd = '';
+        $scope.confirmpwd = '';
+        $scope.isagree = false;
+        $scope.msg = '';
+        //初始化行为模型
+
+        $scope.register = function () {
+            if ($scope.username.length < 6) {
+                $scope.msg = "用户名少于六位";
+                return;
+            } else if ($scope.username) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].name == $scope.username) {
+                        $scope.msg = "用户名重复";
+                        return;
+                    }
+                }
+
+            }/*else if ($scope.userpwd.length < 6) {
+                $scope.msg = "密码长度过短";
+            } else if ($scope.userpwd !== $scope.confirmpwd) {
+                $scope.msg = "两次密码不一致";
+                return;
+            } else if ($scope.usertype < 6) {
+                $scope.msg = "请选择用户类型";
+                return;
+            } else if (!$scope.isagree) {
+                $scope.msg = "请选择注册协议";
+                return;
+            } */ else {
+                $scope.msg = "注册成功";
+            }
+            var obj = {
+                name: $scope.username
+            };
+            arr.push(obj);
+            localStorage.setItem("k", JSON.stringify(arr));
+        }
+    });
+
+    //    //    Model 开始
+//
+//        function User() {
+    //            this.name = name;
+    //            this.pwd = pwd;
+    //            this.type = type;
+    //        }
+    //
+    //    users.prototype.save = function () {
+    //
+    //    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>注册案例</title>
+</head>
+<!-- 2.加上ng-app指令 -->
+
+<body ng-app="myApp">
+<!-- view 开始 -->
+<table ng-controller="myController">
+    <tr>
+        <td>用户名:
+            <input type="text" ng-model="userName">
+        </td>
+    </tr>
+    <tr><td>用户类型: <input type="text" ng-model="userType"></td></tr>
+
+    <tr>
+        <td>密码:
+            <input type="text" ng-model="userPwd">
+        </td>
+    </tr>
+    <tr>
+        <td>确认密码:
+            <input type="text" >
+        </td>
+    </tr>
+    <tr>
+        <td>注册协议:
+            <input type="checkbox" ng-model="isConfirm">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="注册" ng-click="fn()">
+        </td>
+    </tr>
+    <tr>
+        <td>{{info}}</td>
+    </tr>
+</table>
+<!-- View 结束 -->
+<!-- 1.引入angular.js文件 -->
+<script src="libs/angular.js"></script>
+<script>
+    var myApp = angular.module('myApp',[]);
+    var arr = JSON.parse(localStorage.getItem('myUsers')) || [];
+    myApp.controller('myController',function($scope){
+        $scope.fn = function(){
+            //检验数据
+            console.log($scope.userName);
+            if($scope.userName.length < 6){
+                // alert('失败')
+                $scope.info = '用户名太短';
+                return false;
+            }
+            // console.log($scope.isConfirm);
+            // var obj = {
+            //     name:$scope.userName,
+            //     type:$scope.userType,
+            //     pwd:$scope.userPwd
+            // }
+            // arr.push(obj);
+            // // console.log(arr);
+            // localStorage.setItem("myUsers",JSON.stringify(arr));
+            var u = new User($scope.userName,$scope.userType, $scope.userPwd);
+            if(u.save()){
+                $scope.info = "存储成功";
+            }
+        }
+    })
+
+    function User(name,type,pwd){
+        this.name = name;
+        this.pwd = pwd;
+        this.type = type;
+    }
+
+    User.prototype = {
+        constructor:User,
+        save:function(){
+            var obj = {
+                name: this.name,
+                type: this.type,
+                pwd: this.pwd
+            }
+            arr.push(obj);
+            // console.log(arr);
+            localStorage.setItem("myUsers", JSON.stringify(arr));
+            return true;
+        }
+    }
+</script>
+</body>
+
+</html>

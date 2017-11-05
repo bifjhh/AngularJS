@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="libs/angular.js"></script>
+</head>
+<body ng-app="a">
+<div ng-controller="myController">
+    <div>{{testName}}</div>
+</div>
+
+<script>
+    var a = angular.module('a', []);
+    //    console.log(a);
+    a.controller('myController', function ($scope) {
+        $scope.testName = '000';
+    })
+</script>
+</body>
+</html>

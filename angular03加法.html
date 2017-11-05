@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="libs/angular.js"></script>
+</head>
+<body ng-app>
+<input type="text" ng-model="v1">+
+<input type="text" ng-model="v2">
+<input type="button" ng-click="v3=(v1-0)+(v2-0)" value="=">
+<input type="text" ng-model="v3">
+<p>{{(v1-0)+(v2-0)}}</p>
+</body>
+</html>
