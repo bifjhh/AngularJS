@@ -39,6 +39,7 @@
         <ul>
             <li ng-class="{red:k.age<11,green:k.age>10,blue:k.age>20}" ng-repeat="k in data">
                 {{k.name}}--{{k.age}}
+                <!-- ng-class 可以帮助我们控制元素的class样式 ng-class动态添加class样式 ng-class 也可以用独立在其他元素上使用，并不一定要和ng-repeat结合使用 以对象的形式书写，angular会把属性值为true的属性名当做样式添加到class中 -->
             </li>
         </ul>
     </div>
