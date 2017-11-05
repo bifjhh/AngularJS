@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ng-class</title>
+    <style>
+        ul {
+            background-color: #cccccc;
+            text-align: center;
+        }
+    
+        li {
+            width: 300px;
+            line-height: 30px;
+            list-style: none;
+            border-radius: 5px;
+            margin: 2px auto 0;
+        }
+    
+        .red {
+            background-color: #f0f;
+        }
+    
+        .green {
+            background-color: #0ff;
+        }
+        .blue{
+            background-color: rgb(23, 104, 197);
+        }
+    </style>
+</head>
+
+
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <ul>
+            <li ng-class="{red:k.age<11,green:k.age>10,blue:k.age>20}" ng-repeat="k in data">
+                {{k.name}}--{{k.age}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="./libs/angular.js"></script>
+<script>
+
+    var app = angular.module('myApp', [])
+        ; app.controller("myController", ['$scope', function ($scope) {
+            $scope.data = [
+                { id: 2, name: '小明', age: 18 },
+                { id: 1, name: '小月', age: 19 },
+                { id: 2.3, name: '小黑', age: 28 },
+                { id: 4, name: '小红', age: 10 },
+                { id: 5, name: '小白', age: 8 },
+            ]
+        }])
+</script>
+
+</html>
