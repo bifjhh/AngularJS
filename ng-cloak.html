@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>angular表达式闪烁</title>
+    <style>
+        .ng-cloak{
+            display:none;
+        }
+    </style>
+</head>
+<!-- 
+    因为angular在加载完成后会将页面内所有 ng- 的属性移除
+    所以我们可以先写写一个样式 ng-cloak display：none 属性
+     在angular将之移除的时候，其内容就会显示出来
+ -->
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <p class="ng-cloak">
+            {{name}}
+        </p>
+    </div>
+</body>
+<script src="./libs/angular.js"></script>
+<script>
+
+    var app = angular.module('myApp', [])
+        ; app.controller("myController", ['$scope', '$log', function ($scope, $log) {
+            $scope.name = "0-0-0";
+        }])
+</script>
+
+</html>
