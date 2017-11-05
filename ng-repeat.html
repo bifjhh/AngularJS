@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ng-repeat</title>
+    <style>
+        .ng-cloak {
+            display: none;
+        }
+    </style>
+</head>
+
+
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <ul>
+            <li ng-repeat="item in users">
+                <!-- ng-repeat 会遍历传入的内容 -->
+                <!-- item 为每一个元素属性 -->
+               
+                {{item.name}},{{item.age}}
+            </li>
+        </ul>
+        <h1>遍历对象</h1>
+        <ul>
+            <li ng-repeat="item in obj">
+                {{item.name}},{{item.age}}
+            </li>
+        </ul>
+        <h1>遍历数组</h1>
+        <ul>
+            <li ng-repeat="item in arr track by $index">
+                <!-- 如果，数组中有相同的值的情况，item 则 不会进行遍历 
+                    添加 track by $index 可以解决
+                    $index 类似于数组的索引-->
+                {{item}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="./libs/angular.js"></script>
+<script>
+
+    var app = angular.module('myApp', [])
+        ; app.controller("myController", ['$scope', function ($scope) {
+            $scope.users = [
+                { name: '小明', age: 18 },
+                { name: '小红', age: 18 },
+                { name: '小朋', age: 28 },
+                { name: '小月', age: 19 },
+                { name: '小黑', age: 18 },
+                { name: '小白', age: 20 }
+            ];
+            $scope.obj = {
+                xm: { name: '小明', age: 18 },
+                xh: { name: '小红', age: 28 },
+                xt: { name: '小天', age: 10 },
+                xy: { name: '小月', age: 38 }
+            };
+            $scope.arr = [1, 2, 3, 4, 5, 2];
+        }])
+</script>
+
+</html>
