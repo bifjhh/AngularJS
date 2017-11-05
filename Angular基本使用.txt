@@ -52,3 +52,93 @@ MVC 思想
     V : View 视图，把数据呈现给用户
     C : Controller 做一些控制和调度的操作
 
+
+
+Angular vs jQuery
+    提高了dom操作的效率
+    不推崇dom操作
+
+angular.element, 使用方式和jquery非常像,
+    jqLite对象可以把angular.element当作jQuery的$来用，
+    注意*angular.element 要求传入的参数是一个原生的dom对象，而不是选择器*
+    angular.element(document).ready(function()){}
+
+angular开发流程
+    1.在HTML中引入angular.js文件
+    2.在html中加上ng-app指令，告诉angular要管理页面的哪一部分的代码
+    3.在js中创建模块  angular.module('模块名',[所依赖的模块])，给ng-app指令一个值，这个值就是所使用的模块的名字
+    4.在js中创建控制器  模块.controller('控制器名',function(){})，然后再页面上加上ng-controller指令，指令的值为所使用的指令的名字
+    5.建模：根据页面结构，抽象出具体的js对象
+    6.通过$scope做一些初始化的操作 $scope.username="小明"
+    7.通过 ng-model ng-click {{}} 把$scope的属性在页面中显示出来
+    8.在js中书写具体的逻辑
+
+MVC
+    MVC只是一种思想，只是约定了我们应该如何去组织代码
+    让我们的代码的每一个部分都有一个明确的职责
+    更利于后期的维护性（并不是提高了代码的执行性能，有可能10行代码写在了十个方法里，再放到十个文件中去）
+    
+    mvc  视图和控制器的变化需要经过控制器的调度
+    mvvm  视图和数据模型 一一映射，同步不需要经过控制器的调度
+    因为在angular中$scope的使用甚至大过于c（控制器），所以部分人又称angular为 mvvm框架
+
+$scope
+    视图和控制器之间的数据桥梁
+    用于在视图和控制器之间传递数据
+    用来暴露数据模型（数据，行为）
+
+$scope 实际上就是MVVM中所谓的VM（视图模型）
+    正是因为$scope在Angular中大量使用甚至盖过了C（控制器）的概念，所以很多人把Angular称之为MVVM框架
+    这一点倒是无所谓，具体看怎么用罢了
+
+Angular 模块
+    angular.module('模块名',[])
+
+Angular中模块的划分方式
+    1.按照项目的功能去划分模块
+    2.按照项目中文件的类型去划分模块
+
+Angular 控制器
+    传统的方式创建控制器
+       angular开始的版本（1.2.x版本）  会将全局的函数当做控制器 
+       弊端，全局作用域暴露太多，容易造成函数的污染
+
+    面向对象的方式创建控制器
+        ng-controller="myController as obj"
+        as 为关键字 不变的
+        这里的obj 代表控制器中回调函数new 出的对象
+
+    安全的方式创建控制器  
+      就是为了避免压缩后代码无法运行
+        app.controller('demoController',['$scope','$log',function($scope,$log){}])    
+        把第二个参数改为一个数组,在数组把我们需要的参数的名字写上
+        回调函数就写在数组的最后一个元素上
+        注意：数据中传入的元素的顺序,要和function的中顺序一一对应
+    
+指令
+    ng-bind="msg" 
+        解决表达式显示闪烁问题
+        浏览器不会吧标签的属性显示出来
+        angular会把ng-bind="msg"对应的数据显示到对应的标签
+    ng-cloak
+        也可以解决闪烁问题
+        因为angular在加载完成后会将页面内所有 ng- 的属性移除
+        我们可以自己写一个样式 ng-cloak display：none 属性
+        在angular将之移除的时候，其内容就会闪烁出来    
+
+    ng-repeat
+        可以将一组数据直接渲染到页面上，不需要我们拼接字符串
+        ng-repeat="item in users"
+        item 为每一个元素属性
+        数组中有相同的值的情况，item 则 不会进行遍历 
+            添加 track by $index 可以解决
+            $index 类似于数组的索引
+
+    ng-repeat 在遍历时会提供以下值:
+        $odd : 为true时，表明当前数据是否是第[奇]数条
+        $even: 为true时，表明当前数据是否是第[偶]数条
+        $first: 为true时，表明当前数据是否是第1条
+        $last: 为true时，表明当前数据是否是最后一条
+        $middle: 为true时，表明当前数据是否是中间的数据
+
+
