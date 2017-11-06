@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义指令</title>
+</head>
+<body ng-app="myApp">
+    <div my-btn>
+        
+    </div>
+
+<script src="./libs/angular.js"></script>
+<script type="text/ng-template" id="data">
+    <h1>使用templateUrl插入script中的内容</h1>
+</script>
+<script>
+     ;var  myApp = angular.module('myApp',[])
+     ;myApp.directive('myBtn',[function () {
+         return{
+            //  template:'<h1>自定义创建指令</h1>'
+            // template：需要提供一个HTML字符串，最最终会被添加到当前页面使用自定义指令的位置
+            // templateUrl：需要提供一个html文件路径，angular会发出请求到对应的文件，把文件的内容作为模板插入到自定义指令之间
+            // 值 也可以是一个script 标签的 id  *注意 * script标签的type属性需要更改为 "text/ng-template"
+            templateUrl:"data"
+         }
+     }])
+</script>
+</body>
+</html>
