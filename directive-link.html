@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义指令</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f;
+            border: 1px solid #000;
+            margin-top: 20px;
+        }
+        .bule{
+            background-color: #0ff;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div my-btn></div>
+    <div class="my-btn">
+        
+    </div>
+
+    <script src="./libs/angular.js"></script>
+    <script type="text/ng-template" id="data">
+    <div></div>
+</script>
+    <script>
+        ; var myApp = angular.module('myApp', [])
+            ; myApp.directive('myBtn', [function () {
+                return {
+                    templateUrl: "data"
+                    , restrict: 'AEC'
+                    , replace: true
+                    , link:function (scope, element, attributes) {
+                        element.on('mousemove',function () {
+                            element.addClass('bule');
+                        })
+                        , element.on('mouseout', function () {
+                                element.removeClass('bule');
+                            })
+                    }
+                }
+            }])
+    </script>
+</body>
+
+</html>
