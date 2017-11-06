@@ -7,13 +7,13 @@
     <title>自定义指令</title>
 </head>
 <body ng-app="myApp">
-    <div my-btn>
-        
-    </div>
+    <div my-btn></div>
+    <div class="my-btn"></div>
+    <my-btn></my-btn>
 
 <script src="./libs/angular.js"></script>
 <script type="text/ng-template" id="data">
-    <h1>使用templateUrl插入script中的内容</h1>
+    <h1>使用templateUrl</h1>
 </script>
 <script>
      ;var  myApp = angular.module('myApp',[])
@@ -24,6 +24,14 @@
             // templateUrl：需要提供一个html文件路径，angular会发出请求到对应的文件，把文件的内容作为模板插入到自定义指令之间
             // 值 也可以是一个script 标签的 id  *注意 * script标签的type属性需要更改为 "text/ng-template"
             templateUrl:"data"
+            ,restrict:'AEC'
+            /* 
+            restrict：也需要提供一个字符串，限制自定义指令的使用形式
+                + A：attribute 表示只能以属性的形式使用
+                + C：Class     表示只能以类样式名的形式使用
+                + E：Element   表示只能以自定义标签的形式使用
+                + ACE：    全部都使用 */
+
          }
      }])
 </script>
