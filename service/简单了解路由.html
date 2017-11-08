@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body ng-app="myApp">
+    <ul>
+        <li>
+            <a href="#/find">发现音乐</a>
+        </li>
+        <li>
+            <a href="#/mine">我的音乐</a>
+        </li>
+        <li>
+            <a href="#/friend">我的朋友</a>
+        </li>
+    </ul>
+    <div ng-view></div>
+
+
+    <script src="../libs/angular.js"></script>
+    <script src="../libs/angular-route.js"></script>
+    <script>
+
+        var myApp = angular.module('myApp', ['ngRoute'])
+            //        配置记录的数据
+            //        routeProvider 类似于一个记事本
+            ; myApp.config(['$routeProvider', function ($routeProvider) {
+                //        一个锚点  对应一个 when
+                $routeProvider.when('/find', {
+                    template: '发现音乐'
+                }).when('/mine', {
+                    template: '我的音乐'
+                }).when('/friend', {
+                    template: '我的朋友'
+                })
+            }])
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+<div ng-view></div>
+<script src="libs/angular.js"></script>
+<script src="libs/angular-route.js"></script>
+<script>
+    var myApp=angular.module('myApp',['ngRoute'])
+//        配置记录的数据
+//        routeProvider 类似于一个记事本
+    ;myApp.config(['$routeProvider',function ($routeProvider) {
+//        一个锚点  对应一个 when
+        $routeProvider.when('find',{
+            template:'2'
+        }).when('/bd',{
+            template:'1'
+        }).when('/tx',{
+            template:'3'
+        })
+    }])
+</script>
+</body>
+</html>
