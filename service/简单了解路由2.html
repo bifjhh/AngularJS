@@ -9,13 +9,13 @@
 <body ng-app="myApp">
     <ul>
         <li>
-            <a href="#/find">发现音乐</a>
+            <a href="#/company/find">发现音乐</a>
         </li>
         <li>
-            <a href="#/mine">我的音乐</a>
+            <a href="#/company/mine">我的音乐</a>
         </li>
         <li>
-            <a href="#/friend">我的朋友</a>
+            <a href="#/company/friend">我的朋友</a>
         </li>
     </ul>
     <div ng-view></div>
@@ -30,18 +30,20 @@
             //        routeProvider 类似于一个记事本
             ; myApp.config(['$routeProvider', function ($routeProvider) {
                 //        一个锚点  对应一个 when
-                $routeProvider.when('/find', {
-                    template: '发现音乐'
-                }).when('/mine', {
-                    template: '我的音乐'
-                }).when('/friend', {
+                $routeProvider.when('/company/:name?', {
                     template: '{{msg}}'
-                    ,controller:'myController'
-                })
+                    , controller: 'myController'
+                }).when('/404', {
+                    template: '您访问的地址不存在'
+                }).otherwise({
+                        redirectTo: '/404'
+                    })
+
             }])
-            ;myApp.controller('myController',['$scope',function($scope){
-                $scope.msg='66666666'
-            }])
+            ; myApp.controller('myController', ['$scope','$routeParams', function ($scope, $routeParams) {
+               $scope.msg = '你想去'+ ($routeParams['name'] || 'baidu');
+    }])
+
     </script>
 </body>
 

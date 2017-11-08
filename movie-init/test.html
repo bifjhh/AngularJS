@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="indexApp" ng-controller="indexController">
+
+<script src="node_modules/angular/angular.js"></script>
+<script>
+    angular.module('indexApp',[])
+        .controller('indexController',function($scope,$location){
+            $scope.tpl =$location.url()
+            $scope.$watch('tpl',function(now,next){
+                console.log(now,next)
+            })
+        })
+</script>
+</body>
+</html>

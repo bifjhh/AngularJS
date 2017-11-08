@@ -1,0 +1,101 @@
+{
+    "rating": {
+        "max": 10,
+        "average": 6.6,
+        "stars": "35",
+        "min": 0
+    },
+    "reviews_count": 192,
+    "wish_count": 4248,
+    "douban_site": "",
+    "year": "2007",
+    "images": {
+        "small": "http://img3.doubanio.com/view/photo/s_ratio_poster/public/p2165572589.jpg",
+        "large": "http://img3.doubanio.com/view/photo/s_ratio_poster/public/p2165572589.jpg",
+        "medium": "http://img3.doubanio.com/view/photo/s_ratio_poster/public/p2165572589.jpg"
+    },
+    "alt": "https://movie.douban.com/subject/1792917/",
+    "id": "1792917",
+    "mobile_url": "https://movie.douban.com/subject/1792917/mobile",
+    "title": "贝奥武夫",
+    "do_count": null,
+    "share_url": "http://m.douban.com/movie/subject/1792917",
+    "seasons_count": null,
+    "schedule_url": "",
+    "episodes_count": null,
+    "countries": [
+        "美国"
+    ],
+    "genres": [
+        "动画",
+        "动作",
+        "冒险"
+    ],
+    "collect_count": 28614,
+    "casts": [
+        {
+            "alt": "https://movie.douban.com/celebrity/1006977/",
+            "avatars": {
+                "small": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1256.jpg",
+                "large": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1256.jpg",
+                "medium": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1256.jpg"
+            },
+            "name": "雷·温斯顿",
+            "id": "1006977"
+        },
+        {
+            "alt": "https://movie.douban.com/celebrity/1002666/",
+            "avatars": {
+                "small": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p2609.jpg",
+                "large": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p2609.jpg",
+                "medium": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p2609.jpg"
+            },
+            "name": "克里斯平·格洛弗",
+            "id": "1002666"
+        },
+        {
+            "alt": "https://movie.douban.com/celebrity/1054447/",
+            "avatars": {
+                "small": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1588.jpg",
+                "large": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1588.jpg",
+                "medium": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1588.jpg"
+            },
+            "name": "安吉丽娜·朱莉",
+            "id": "1054447"
+        },
+        {
+            "alt": "https://movie.douban.com/celebrity/1002676/",
+            "avatars": {
+                "small": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51737.jpg",
+                "large": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51737.jpg",
+                "medium": "http://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51737.jpg"
+            },
+            "name": "罗宾·怀特",
+            "id": "1002676"
+        }
+    ],
+    "current_season": null,
+    "original_title": "Beowulf",
+    "summary": "在英国撒克逊人长篇史诗《贝奥武夫》的描述中，主人公贝奥武夫（雷·温斯顿 Ray Winstone 饰）是一位拥有强健体魄和惊人战力的武士，他一身将经历三场对其影响重大的战役。为了拯救被巨人格兰戴尔（克利斯丁·格拉夫 Crispin Glover 饰）掠夺的村庄，贝奥武夫带领一群武士渡过海洋向其挑战。在一场浴血奋战之后，格兰戴尔被武士们所击败。但是战斗却没有结束，格兰戴尔的母亲（安吉丽娜·朱莉 Angelina Jolie 饰）为了复仇向贝奥武夫发起了挑战。一场更大的战役即将打响。虽然这次，勇士们将付出更加惨痛的代价，但是在无所畏惧的贝奥武夫面前，即便是再厉害的对手，也将被毁灭。多年后，与一条恶龙的终极之战，最终将贝奥武夫的名字变成了不朽的传奇。©豆瓣",
+    "subtype": "movie",
+    "directors": [
+        {
+            "alt": "https://movie.douban.com/celebrity/1053564/",
+            "avatars": {
+                "small": "http://img7.doubanio.com/view/celebrity/s_ratio_celebrity/public/p505.jpg",
+                "large": "http://img7.doubanio.com/view/celebrity/s_ratio_celebrity/public/p505.jpg",
+                "medium": "http://img7.doubanio.com/view/celebrity/s_ratio_celebrity/public/p505.jpg"
+            },
+            "name": "罗伯特·泽米吉斯",
+            "id": "1053564"
+        }
+    ],
+    "comments_count": 4044,
+    "ratings_count": 22211,
+    "aka": [
+        "魔战王：贝奥武夫",
+        "贝奥武夫:北海的诅咒",
+        "战狼",
+        "贝奥武夫"
+    ]
+}
