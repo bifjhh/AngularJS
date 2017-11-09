@@ -1,5 +1,5 @@
 <!-- 电影详情开始 -->
-<div class="detail">
+<!-- <div class="detail">
     <h1>{{data.title}}</h1>
     <div class="dt-info">
         <div class="dti-i">
@@ -28,6 +28,35 @@
     </div>
     <h3>剧情简介:</h3>
     <p style="color:#676767">{{data.summary}}</p>
-</div>
+</div> -->
 <!-- 电影详情结束 -->
+
+
+
+<!--电影列表开始-->
+<div class="list">
+    <ul>
+        <li ng-repeat=" k in data.subjects">
+            <a href="#/details">
+                <img ng-src="{{k.images.large}}" alt="">
+            </a>
+            <div class="meta">
+                <h4>
+                    <span>{{k.title}}</span>
+                    <em>{{k.rating.average}}</em>
+                </h4>
+                <div class="otherinfo">类型:
+                    <span>{{k.genres.join('、')}}</span>
+                </div>
+            </div>
+        </li>
+       
+    </ul>
+    <div class="paging">
+        <label>总共：{{data.total}}条记录,第{{page}}/{{total}}页;</label>
+        <!-- 加上disable类样式，表示按钮禁用状态 -->
+        <button class="prev disable " ng-click="getPage(page-1)">上一页</button>
+        <button class="next" ng-click="getPage(page+1)">下一页</button>
+    </div>
 </div>
+<!--电影列表结束-->
