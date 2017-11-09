@@ -2,7 +2,7 @@
 <div class="list">
     <ul>
         <li ng-repeat=" k in data.subjects">
-            <a href="#/details">
+            <a href="#/details/{{k.id}}">
                 <img ng-src="{{k.images.large}}" alt="">
             </a>
             <div class="meta">
@@ -15,138 +15,27 @@
                 </div>
             </div>
         </li>
-       <!--  <li>
-            <a href="#/details">
-                <img src="assets/img/sc.jpg" alt="">
-            </a>
-            <div class="meta">
-                <h4>
-                    <span>乾隆秘史</span>
-                    <em>9.9分</em>
-                </h4>
-                <div class="otherinfo">类型:
-                    <span>古装</span>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a href="#/details">
-                <img src="assets/img/sc.jpg" alt="">
-            </a>
-            <div class="meta">
-                <h4>
-                    <span>乾隆秘史</span>
-                    <em>9.9分</em>
-                </h4>
-                <div class="otherinfo">类型:
-                    <span>古装</span>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a href="#/details">
-                <img src="assets/img/sc.jpg" alt="">
-            </a>
-            <div class="meta">
-                <h4>
-                    <span>乾隆秘史</span>
-                    <em>9.9分</em>
-                </h4>
-                <div class="otherinfo">类型:
-                    <span>古装</span>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a href="#/details">
-                <img src="assets/img/sc.jpg" alt="">
-            </a>
-            <div class="meta">
-                <h4>
-                    <span>乾隆秘史</span>
-                    <em>9.9分</em>
-                </h4>
-                <div class="otherinfo">类型:
-                    <span>古装</span>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a href="#/details">
-                <img src="assets/img/aizaishenqiu.jpg" alt="">
-            </a>
-            <div class="meta">
-                <h4>
-                    <span>爱在深秋</span>
-                    <em>9.9分</em>
-                </h4>
-                <div class="otherinfo">类型:
-                    <span>爱情</span>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a href="#/details">
-                <img src="assets/img/aizaishenqiu.jpg" alt="">
-            </a>
-            <div class="meta">
-                <h4>
-                    <span>爱在深秋</span>
-                    <em>9.9分</em>
-                </h4>
-                <div class="otherinfo">类型:
-                    <span>爱情</span>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a href="#/details">
-                <img src="assets/img/aizaishenqiu.jpg" alt="">
-            </a>
-            <div class="meta">
-                <h4>
-                    <span>爱在深秋</span>
-                    <em>9.9分</em>
-                </h4>
-                <div class="otherinfo">类型:
-                    <span>爱情</span>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a href="#/details">
-                <img src="assets/img/aizaishenqiu.jpg" alt="">
-            </a>
-            <div class="meta">
-                <h4>
-                    <span>爱在深秋</span>
-                    <em>9.9分</em>
-                </h4>
-                <div class="otherinfo">类型:
-                    <span>爱情</span>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a href="#/details">
-                <img src="assets/img/aizaishenqiu.jpg" alt="">
-            </a>
-            <div class="meta">
-                <h4>
-                    <span>爱在深秋</span>
-                    <em>9.9分</em>
-                </h4>
-                <div class="otherinfo">类型:
-                    <span>爱情</span>
-                </div>
-            </div>
-        </li> -->
     </ul>
     <div class="paging">
         <label>总共：{{data.total}}条记录,第{{page}}/{{total}}页;</label>
         <!-- 加上disable类样式，表示按钮禁用状态 -->
-        <button class="prev disable " ng-click="getPage(page-1)">上一页</button>
-        <button class="next" ng-click="getPage(page+1)">下一页</button>
+        <button class="prev " ng-class="{'disable':page<=1}" ng-click="getPage(page-1)">上一页</button>
+        <button class="next" ng-class="{'disable':page>=total} " ng-click="getPage(page+1)">下一页</button>
     </div>
 </div>
 <!--电影列表结束-->
+<div ng-class="{'dsn':loading==false}" class="film"></div>
+<div ng-class="{'dsn':loading==false}" class="sk-fading-circle">
+    <div class="sk-circle1 sk-circle"></div>
+    <div class="sk-circle2 sk-circle"></div>
+    <div class="sk-circle3 sk-circle"></div>
+    <div class="sk-circle4 sk-circle"></div>
+    <div class="sk-circle5 sk-circle"></div>
+    <div class="sk-circle6 sk-circle"></div>
+    <div class="sk-circle7 sk-circle"></div>
+    <div class="sk-circle8 sk-circle"></div>
+    <div class="sk-circle9 sk-circle"></div>
+    <div class="sk-circle10 sk-circle"></div>
+    <div class="sk-circle11 sk-circle"></div>
+    <div class="sk-circle12 sk-circle"></div>
+</div>
